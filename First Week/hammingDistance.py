@@ -1,4 +1,8 @@
 def hammingDistance(a, b):
+    return sum([1 for i in bin(a^b) if i is "1"])
+
+'''
+def hammingDistance(a, b):
     a_bit = '{0:b}'.format(a)
     b_bit = '{0:b}'.format(b)
     if len(a_bit) > len(b_bit):
@@ -8,7 +12,7 @@ def hammingDistance(a, b):
         len_offset = len(b_bit) - len(a_bit)
         a_bit = ("0" * len_offset) + a_bit
     return sum([1 for i in range(len(a_bit)) if a_bit[i] is not b_bit[i]])
-
+'''
 
 '''
 def hammingDistance(a, b):
