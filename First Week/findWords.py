@@ -14,7 +14,7 @@ def findWords(words):
     return [word for word in words if (letterInSameRow(word))]
 
 def letterInSameRow(word):
-    if len(word) == 0:
+    if len(word) == 0: # Assume '' will get False
         return False
     word = word.lower()
     num = letter_dict[word[0]] # Get first number of word

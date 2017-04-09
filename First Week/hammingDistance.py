@@ -3,12 +3,12 @@ def hammingDistance(a, b):
     b_bit = '{0:b}'.format(b)
     if len(a_bit) > len(b_bit):
         len_offset = len(a_bit) - len(b_bit)
-        b_bit = ("0"*len_offset) + b_bit
+        b_bit = ("0" * len_offset) + b_bit
     else:
         len_offset = len(b_bit) - len(a_bit)
-        a_bit = ("0"*len_offset) + a_bit
-    assert len(a_bit) == len(b_bit)
+        a_bit = ("0" * len_offset) + a_bit
     return sum([1 for i in range(len(a_bit)) if a_bit[i] is not b_bit[i]])
+
 
 '''
 def hammingDistance(a, b):
