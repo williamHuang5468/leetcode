@@ -5,6 +5,7 @@ class Solution(object):
         :rtype: int
         """
         count = 0
+        number = nums[0]
         onesList = []
         for i in nums:
             if i == 1:
@@ -14,7 +15,6 @@ class Solution(object):
                 count = 0
         onesList.append(count)
         return max(onesList)
-            
 
 s = Solution()
 assert s.findMaxConsecutiveOnes([1,1]) == 2
