@@ -1,43 +1,25 @@
-'''
-Two Way:
-1. 暴力法
-2. build-in
-'''
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
-# Build-in
 class Solution(object):
-    def detectCapitalUse(self, word):
-        return word.isupper() or word.istitle() or word.islower()
-
-# 暴力
-'''
-class Solution(object):
-    def detectCapitalUse(self, word):
+    def findBottomLeftValue(self, root):
         """
-        :type word: str
-        :rtype: bool
-        All letters in this word are capitals, like "USA".
-        All letters in this word are not capitals, like "leetcode".
-        Only the first letter in this word is capital if it has more than one letter, like "Google".
+        :type root: TreeNode
+        :rtype: int
         """
-        if len(word) == 1:
-            return True
-        if self.isUpper(word[0]):
-            up = self.isUpper(word[1]) # Second letter is lower or upper
-            low = self.isLower(word[1])
-            for letter in word[2:]:
-                isUpperOrLower = (up and self.isUpper(letter)) or (low and self.isLower(letter))
-                if not isUpperOrLower:
-                    return False
-            return True
-        else:
-            for letter in word[1:]:
-                if self.isUpper(letter):
-                    return False
-            return True
+        queue = [root]
+        for node in queue:
+            if node.right != None:
+                queue.append(node.right)
+            if node.left != None:
+                queue.append(node.left)
+        return node.val
 
-    def isUpper(self, letter):
-        return ord(letter) < 97
-    def isLower(self, letter):
-        return ord(letter) > 96
-'''
+s = Solution()
+t = TreeNode(2)
+t.left = TreeNode(1)
+t.right = TreeNode(3)
+assert (s.findBottomLeftValue(t)) == 1
