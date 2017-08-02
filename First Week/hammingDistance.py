@@ -1,5 +1,10 @@
 def hammingDistance(a, b):
+    return bit(a^b).count('1')
+
+'''
+def hammingDistance(a, b):
     return sum([1 for i in bin(a^b) if i is "1"])
+'''
 
 '''
 def hammingDistance(a, b):
