@@ -14,7 +14,7 @@ class MinStack:
         :rtype: void
         """
         self.values.append(x)
-        if (len(self.min) == 0) or (x <= self.min[len(self.min)-1]) :
+        if (len(self.min) == 0) or (x <= self.min[-1]) :
             self.min.append(x)
 
     def pop(self):
@@ -22,7 +22,7 @@ class MinStack:
         :rtype: void
         """
         x = self.values.pop()
-        if x == self.min[len(self.min)-1]:
+        if x == self.min[-1]:
             self.min.pop()
         
 
@@ -30,11 +30,11 @@ class MinStack:
         """
         :rtype: int
         """
-        return self.values[len(self.values)-1]
+        return self.values[-1]
         
 
     def getMin(self):
         """
         :rtype: int
         """
-        return self.min[len(self.min)-1]
+        return self.min[-1]
